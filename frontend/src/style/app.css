@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  font-family: 'Microsoft Yahei', 'Helvetica Neue Regular', 'Helvetica Neue',
+    Helvetica, Arial, 'Lucida Grande', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  word-wrap: break-word;
+  letter-spacing: 0.25px;
+}
+
+html,
+body {
+  background: #181a6f;
+}
+
+.container {
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+  display: block;
+}
+
+.bottom {
+  width: 100%;
+  display: block;
+}
+
+section.prize-section {
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+  width: 94%;
+  height: 180px;
+  margin: 10px auto;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.prize-img {
+  width: 50%;
+  height: 160px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.section-right {
+  width: 46%;
+  height: 160px;
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section-right .title {
+  margin: 0;
+  font-size: 20px;
+}
+
+.subtitle {
+  color: #666;
+}
+
+.button-wrapper {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.button-wrapper .star {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 16px;
+  z-index: 100;
+}
+
+.prize-value,.prize-start {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 16px;
+  height: 100%;
+  padding: 10px 5px;
+}
+
+.prize-value {
+  background-color: #fceaec;
+  background: -webkit-linear-gradient(
+    left,
+    #fce0e3,
+    #fceaec
+  ); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(
+    right,
+    #fce0e3,
+    #fceaec
+  ); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(
+    right,
+    #fce0e3,
+    #fceaec
+  ); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #fce0e3, #fceaec); /* 标准的语法 */
+  width: 38%;
+  border-radius: 10px 0 0 0;
+  color: #f61f4c;
+}
+
+.prize-start {
+  color: #fff;
+  background-color: #f61f4c;
+  background: -webkit-linear-gradient(
+    left,
+    #fe3c60,
+    #f61f4c
+  ); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(
+    right,
+    #fe3c60,
+    #f61f4c
+  ); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(
+    right,
+    #fe3c60,
+    #f61f4c
+  ); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #fe3c60, #f61f4c); /* 标准的语法 */
+  width: 64%;
+  border-radius: 0 5px 0 0;
+  position: relative;
+}
+
+.prize-get-btn:hover {
+  box-shadow: 2px 2px 10px rgba(246, 31, 76, 0.6);
+}
+
+.prize-value .value-text {
+  font-size: 16px;
+}
+
+.prize-start .start-text {
+  font-size: 20px;
+}
+
+.prize-start.empty {
+  justify-content: center;
+  pointer-events: none;
+  background: #999;
+  font-weight: bold;
+}
+
+/**
+ * Animations
+ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

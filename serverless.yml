@@ -1,0 +1,47 @@
+name: gmtc
+
+frontend:
+  component: '@serverless/tencent-website'
+  # more configuration for @serverless/tencent-website, 
+  # refer to: https://github.com/serverless-components/tencent-website/blob/master/docs/configure.md
+  inputs:
+    region: ap-beijing
+    protocol: https
+    bucketName: qhfmt1i-3y64lps
+    code:
+      src: dist
+      root: frontend
+      hook: npm run build
+    env:
+      # get api url after below api service deployed.
+      apiUrl: ${api.url}
+
+api:
+  component: '@serverless/tencent-express'
+  # more configuration for @serverless/tencent-website, 
+  # refer to: https://github.com/serverless-components/tencent-express/blob/master/docs/configure.md
+  inputs:
+    region: ap-beijing
+    code: ./api
+    functionName: gmtc-api
+    role: execute-scf
+    functionConf:
+      timeout: 180
+      vpcConfig:
+        vpcId: vpc-mbygarhc
+        subnetId: subnet-1ijirb3v
+    apigatewayConf:
+      protocols:
+        - https
+
+# postgres:
+#   component: '@serverless/tencent-postgres'
+#   inputs:
+#     region: ap-beijing
+#     zone: ap-beijing-2
+#     dBInstanceName: postgres-ec289zvy
+#     vpcConfig:
+#       vpcId: vpc-mbygarhc
+#       subnetId: subnet-1ijirb3v
+
+
