@@ -63,7 +63,6 @@ const prizeLimitMap = {
 };
 
 const openDate = [
-  '2019-12-19',
   '2019-12-20',
   '2019-12-21',
 ]
