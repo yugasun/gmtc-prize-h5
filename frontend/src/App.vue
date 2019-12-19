@@ -122,7 +122,7 @@ export default {
         });
         if (data.code !== 0) {
           if (data.code === 1005) {
-            this.showMsg("您已经获得过此奖品，请勿重复尝试~");
+            this.showMsg("您已经获得过此奖品，请勿重复尝试");
           } else {
             this.showMsg(data.message);
           }
@@ -131,14 +131,14 @@ export default {
             const [prize] = defaultPrizes.filter(
               item => item.prizeId === prizeId
             );
-            this.showMsg(`恭喜你，获得1${prize.unit}${prize.title}`);
+            this.showMsg(`恭喜您，获得1${prize.unit}${prize.title}`);
           } else {
-            this.showMsg("非常遗憾，奖品已经被抢光了...");
+            this.showMsg("非常遗憾，奖品已经被抢光了");
           }
           this.getPrizeCounts();
         }
       } catch (e) {
-        this.showMsg("活动过于火爆，请稍后再再试~");
+        this.showMsg("活动过于火爆，请稍后再再试");
       }
       this.loading = false;
     },
