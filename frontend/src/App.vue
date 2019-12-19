@@ -20,9 +20,13 @@
       class="header"
     />
 
-    <Toast :show="loading"/>
+    <Toast :show="loading" />
 
-    <Dialog :show="msgShow" :content="msg" @hide="hideMsg"/>
+    <Dialog
+      :show="msgShow"
+      :content="msg"
+      @hide="hideMsg"
+    />
   </div>
 </template>
 
@@ -34,18 +38,19 @@ import {
   defaultPrizes,
   defaultPrizeCounts,
   prizeLimitMap,
-  UID_KEY
+  UID_KEY,
+  openDate
 } from "./config";
 import Prize from "./components/Prize";
-import Toast from './components/Toast'
-import Dialog from './components/Dialog'
+import Toast from "./components/Toast";
+import Dialog from "./components/Dialog";
 
 export default {
   name: "app",
   components: {
     Prize,
     Toast,
-    Dialog,
+    Dialog
   },
   data: function() {
     return {
@@ -83,13 +88,23 @@ export default {
     initPrizes() {
       const now = new Date();
       const today = this.getDate(now);
-      this.prizes = defaultPrizes.map(item => {
+      const empty = [];
+      const notEmpoty = [];
+      this.prizes = [];
+      defaultPrizes.forEach((item) => {
         const newD = new Date(`${today} ${item.start}`);
-        item.started = now >= newD;
+        item.started = openDate.indexOf(today) >= 0 && now >= newD;
         item.empty =
           this.prizeCounts[item.prizeId].length >= prizeLimitMap[item.prizeId];
-        return item;
+
+        if (item.empty) {
+          empty.push(item);
+        } else {
+          notEmpoty.push(item);
+        }
       });
+
+      this.prizes = notEmpoty.concat(empty);
     },
 
     // get user list

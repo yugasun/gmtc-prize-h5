@@ -8,6 +8,7 @@
     <div class="right section-right">
       <h5 class="title">{{ item.title }}</h5>
       <p class="subtitle">{{ item.subtitle }}</p>
+      <p class="start-time">{{ item.start }} 开抢</p>
       <div class="button-wrapper">
         <img
           src="../assets/tag.png"
@@ -15,22 +16,20 @@
           class="star"
           v-if="!item.empty"
         />
-        <div class="left prize-value">
+        <div class="left prize-value" :class="item.empty ? 'empty' : ''">
           <span>价值</span>
           <strong class="value-text">￥{{ item.value }}</strong>
         </div>
         <div
           class="left prize-start prize-get-btn"
           v-if="item.started && !item.empty"
-          @click="getPrize(item.prizeId)"
-          :style="{justifyContent: 'center', fontSize: '20px'}"
+          @click="debounce(getPrize(item.prizeId), 500)"
         >
           <span>立即抢</span>
         </div>
         <div
-          class="left prize-start disable"
+          class="left prize-start disable empty"
           v-else-if="item.empty"
-          :class="'empty'"
         >
           <span>抢光了</span>
         </div>
@@ -38,20 +37,22 @@
           class="left prize-start disable"
           v-else
         >
-          <span>开抢时间</span>
-          <strong class="start-text">{{ item.start }}</strong>
+          <span>还未开始</span>
         </div>
       </div>
     </div>
   </section>
 </template>
 <script>
+import { debounce } from '../utils/index';
+
 export default {
   name: "Prize",
   props: {
     item: {}
   },
   methods: {
+    debounce,
     getPrize(prizeId) {
       this.$emit("get-prize", prizeId);
     }

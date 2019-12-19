@@ -62,6 +62,12 @@ const prizeLimitMap = {
   '4': 10,
 };
 
+const openDate = [
+  '2019-12-19',
+  '2019-12-20',
+  '2019-12-21',
+]
+
 const UID_KEY = 'gmtc_uid';
 
 export {
@@ -69,4 +75,5 @@ export {
   defaultPrizeCounts,
   prizeLimitMap,
   UID_KEY,
+  openDate,
 };

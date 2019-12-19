@@ -93,7 +93,7 @@ section.prize-section {
 }
 
 .button-wrapper {
-  height: 70px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -108,19 +108,26 @@ section.prize-section {
   z-index: 100;
 }
 
+.start-time {
+  color: #f61f4c;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 .prize-value,
 .prize-start {
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
-  font-size: 16px;
+  justify-content: center;
   height: 100%;
-  padding: 10px 5px;
+  padding: 5px 5px;
+  font-size: 12px;
+  box-shadow: 3px 3px 10px rgba(246, 31, 76, 0.3);
 }
 
 .prize-value {
-  background-color: #fceaec;
+  background-color: rgb(252, 234, 236);
   background: -webkit-linear-gradient(
     left,
     #fce0e3,
@@ -143,6 +150,7 @@ section.prize-section {
 }
 
 .prize-start {
+  font-size: 16px;
   color: #fff;
   background-color: #f61f4c;
   background: -webkit-linear-gradient(
@@ -171,11 +179,15 @@ section.prize-section {
 }
 
 .prize-value .value-text {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .prize-start .start-text {
-  font-size: 20px;
+  font-size: 16px;
+}
+
+.prize-value.empty {
+  box-shadow: none;
 }
 
 .prize-start.empty {
@@ -183,6 +195,7 @@ section.prize-section {
   pointer-events: none;
   background: #999;
   font-weight: bold;
+  box-shadow: none;
 }
 
 /**
